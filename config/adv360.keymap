@@ -20,6 +20,52 @@
             flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
+
+        tdu: tdu {
+            compatible = "zmk,behavior-tap-dance";
+            label = "Tap Dance Up";
+            #binding-cells = <0>;
+            bindings = <&kp UP>, <&kp PAGE_UP>;
+        };
+
+        tdd: tdd {
+            compatible = "zmk,behavior-tap-dance";
+            label = "Tap Dance Down";
+            #binding-cells = <0>;
+            bindings = <&kp DOWN>, <&kp PAGE_DOWN>;
+        };
+
+        tdl: tdl {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TapDance Left";
+            #binding-cells = <0>;
+            bindings = <&kp LEFT>, <&kp HOME>;
+        };
+
+        tdr: tdr {
+            compatible = "zmk,behavior-tap-dance";
+            label = "TapDance Right";
+            #binding-cells = <0>;
+            bindings = <&kp RIGHT>, <&kp END>;
+        };
+
+        htkl: htkl {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTKL";
+            bindings = <&mo>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
+
+        htkk: htkk {
+            compatible = "zmk,behavior-hold-tap";
+            label = "HTKK";
+            bindings = <&kp>, <&kp>;
+
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+        };
     };
 
     keymap {
@@ -28,22 +74,22 @@
         default_layer {
             display-name = "Base";
             bindings = <
-&kp ESC          &kp N1                   &kp N2     &kp N3         &kp N4  &kp N5  &kp LEFT_BRACKET                                                                          &kp RIGHT_BRACKET  &kp N6  &kp N7    &kp N8            &kp N9             &kp N0     &kp EQUAL
-&kp DEL          &kp SINGLE_QUOTE         &kp COMMA  &kp PERIOD     &kp P   &kp Y   &tog 1                                                                                    &tog 2             &kp F   &kp G     &kp C             &kp R              &kp L      &kp SLASH
-&kp BACKSPACE    &kp A                    &kp O      &kp E          &kp U   &kp I   &tog 3            &mt LCTRL LCTRL  &kp LGUI             &kp LGUI         &mt LCTRL LCTRL  &tog 4             &kp D   &kp H     &kp T             &kp N              &kp S      &mt MINUS MINUS
-&kp LSHFT        &mt SEMICOLON SEMICOLON  &kp Q      &kp J          &kp K   &kp X                                      &kp LALT             &kp LALT                                             &kp B   &kp M     &kp W             &kp V              &mt Z Z    &mt RSHFT RSHFT
-&mt GRAVE GRAVE  &mt GRAVE GRAVE          &kp CAPS   &mt DOWN DOWN  &kp UP          &kp SPACE         &kp BACKSPACE    &mt LCTRL LCTRL      &mt LCTRL LCTRL  &kp TAB          &kp ENTER                  &kp LEFT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT  &mt BSLH BSLH
+&kp ESC        &kp N1             &kp N2     &kp N3           &kp N4  &kp N5  &kp LEFT_BRACKET                                                                          &kp RIGHT_BRACKET  &kp N6  &kp N7    &kp N8            &kp N9             &kp N0     &kp EQUAL
+&kp DEL        &kp SINGLE_QUOTE   &kp COMMA  &kp PERIOD       &kp P   &kp Y   &tog 1                                                                                    &tog 2             &kp F   &kp G     &kp C             &kp R              &kp L      &kp SLASH
+&kp BACKSPACE  &kp A              &kp O      &kp E            &kp U   &kp I   &tog 3            &htkk ESC LCTRL  &kp LGUI             &kp LGUI         &htkk ESC LCTRL  &tog 4             &kp D   &kp H     &kp T             &kp N              &kp S      &mt MINUS MINUS
+&kp LSHFT      &htkl 1 SEMICOLON  &kp Q      &kp J            &kp K   &kp X                                      &kp LALT             &kp LALT                                             &kp B   &kp M     &kp W             &kp V              &htkl 1 Z  &mt LGUI RSHFT
+&htkl 2 GRAVE  &htkl 2 GRAVE      &kp CAPS   &htkk LALT DOWN  &kp UP          &kp SPACE         &kp BACKSPACE    &htkk ESC LCTRL      &htkk ESC LCTRL  &kp TAB          &kp ENTER                  &kp LEFT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT  &htkl 2 BSLH
             >;
         };
 
         keypad {
             display-name = "kp";
             bindings = <
-&trans  &kp F1           &kp F2     &kp F3         &kp F4     &kp F5     &trans                                                              &trans      &kp F6    &kp F7         &kp F8  &kp F9     &kp F10          &kp F11
-&trans  &kp EXCLAMATION  &kp AT     &kp LBRC       &kp RBRC   &kp PIPE   &trans                                                              &trans      &kp FSLH  &kp N7         &kp N8  &kp N9     &kp ASTRK        &kp F12
-&trans  &kp HASH         &kp DLLR   &kp LPAR       &kp RPAR   &kp GRAVE  &trans      &bl BL_CYCLE  &bl BL_INC      &bl BL_TOG  &bl BL_CYCLE  &trans      &kp DOT   &kp N4         &kp N5  &kp N6     &kp PLUS         &trans
-&trans  &trans           &kp CARET  &kp LBKT       &kp RBKT   &kp TILDE                            &trans          &trans                                &kp AMPS  &kp N1         &kp N2  &kp N3     &trans           &trans
-&trans  &trans           &trans     &mt DOWN DOWN  &mt UP UP             &bl BL_DEC  &trans        &trans          &trans      &bl BL_DEC    &bl BL_INC            &mt LEFT LEFT  &kp N0  &kp EQUAL  &mt RIGHT RIGHT  &trans
+&trans  &kp F1           &kp F2     &kp F3    &kp F4    &kp F5     &trans                                                              &trans      &kp F6    &kp F7  &kp F8  &kp F9     &kp F10    &kp F11
+&trans  &kp EXCLAMATION  &kp AT     &kp LBRC  &kp RBRC  &kp PIPE   &trans                                                              &trans      &kp FSLH  &kp N7  &kp N8  &kp N9     &kp ASTRK  &kp F12
+&trans  &kp HASH         &kp DLLR   &kp LPAR  &kp RPAR  &kp GRAVE  &trans      &bl BL_CYCLE  &bl BL_INC      &bl BL_TOG  &bl BL_CYCLE  &trans      &kp DOT   &kp N4  &kp N5  &kp N6     &kp PLUS   &trans
+&trans  &trans           &kp CARET  &kp LBKT  &kp RBKT  &kp TILDE                            &trans          &trans                                &kp AMPS  &kp N1  &kp N2  &kp N3     &trans     &trans
+&trans  &trans           &trans     &tdd      &tdu                 &bl BL_DEC  &trans        &trans          &trans      &bl BL_DEC    &bl BL_INC            &tdl    &kp N0  &kp EQUAL  &tdr       &trans
             >;
         };
 
