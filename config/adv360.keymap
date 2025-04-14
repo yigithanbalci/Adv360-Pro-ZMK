@@ -59,7 +59,7 @@
 &kp ESC        &kp N1            &kp N2     &kp N3         &kp N4  &kp N5  &tog 4                                                                     &mo 3      &kp N6  &kp N7    &kp N8            &kp N9             &kp N0     &kp EQUAL
 &kp DEL        &kp SINGLE_QUOTE  &kp COMMA  &kp PERIOD     &kp P   &kp Y   &tog 1                                                                     &tog 2     &kp F   &kp G     &kp C             &kp R              &kp L      &kp SLASH
 &kp BACKSPACE  &kp A             &kp O      &kp E          &kp U   &kp I   &tog 3     &mt LCTRL ESC  &kp LGUI           &kp LGUI       &mt LCTRL ESC  &tog 4     &kp D   &kp H     &kp T             &kp N              &kp S      &kp MINUS
-&kp LSHFT      &lt 1 SEMICOLON   &kp Q      &kp J          &kp K   &kp X                             &kp LALT           &kp LALT                                 &kp B   &kp M     &kp W             &kp V              &lt 1 Z    &kp RIGHT_SHIFT
+&kp LSHFT      &lt 1 SEMICOLON   &kp Q      &kp J          &kp K   &kp X                             &kp LALT           &kp LALT                                 &kp B   &kp M     &kp W             &kp V              &lt 1 Z    &kp LEFT_SHIFT
 &lt 2 GRAVE    &lt 2 GRAVE       &kp CAPS   &mt LALT DOWN  &kp UP          &kp SPACE  &kp BACKSPACE  &mt LCTRL ESC      &mt LCTRL ESC  &kp TAB        &kp ENTER          &kp LEFT  &kp LEFT_BRACKET  &kp RIGHT_BRACKET  &kp RIGHT  &lt 2 BSLH
             >;
         };
